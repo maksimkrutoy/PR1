@@ -1,0 +1,109 @@
+using System;
+
+namespace pr1_v2
+{
+    class Mathplate
+    {
+        private string name;
+        public string Name
+        {
+            get
+            {
+                return name;    // возвращаем значение свойства
+            }
+            set
+            {
+                if (value.Length >= 20 && value.Length <= 150)
+                {
+                    name = value;
+                }
+
+                else
+                {
+                    Console.WriteLine("Название материнской платы вне диапазона");
+                }
+            }
+        }
+        public Mathplate(string name_)
+        {
+            Name = name_;
+        }
+        public void ShowName()
+        {
+            Console.WriteLine(this.Name);
+        }
+    }
+
+
+        class Processor
+        {
+            private string name;
+            public string Name
+            {
+                get
+                {
+                    return name;    // возвращаем значение свойства
+                }
+                set
+                {
+                    name = value;   // устанавливаем новое значение свойства
+                }
+            }
+
+        public void ShowName()
+            {
+                Console.WriteLine(this.Name);
+            }
+            public Processor(string name_)
+            {
+                 Name = name_;
+            }
+        }
+    
+
+        class PowerBlock
+        {
+            private string name;
+            public string Name
+            {
+                get
+                {
+                    return name;    // возвращаем значение свойства
+                }
+                set
+                {
+                    name = "W" + value;   // устанавливаем новое значение свойства
+                }
+            }
+             public void ShowName()
+            {
+                Console.WriteLine(this.Name);
+            }
+    public PowerBlock(string name_)
+    {
+        Name = name_;
+    }
+}
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                string mn;
+                string bp;
+                string pr;
+                Console.WriteLine("Введите название материнской платы");
+                mn = Console.ReadLine();
+                Console.WriteLine("Введите название блок питания");
+                bp = Console.ReadLine();
+                Console.WriteLine("Введите название процессора");
+                pr = Console.ReadLine();
+
+                Mathplate plate1 = new Mathplate(mn);
+                PowerBlock block1 = new PowerBlock(bp);
+                Processor proc1 = new Processor(pr);
+                plate1.ShowName();
+                block1.ShowName();
+                proc1.ShowName();
+        }
+        }
+    }
